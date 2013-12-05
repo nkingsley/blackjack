@@ -15,6 +15,7 @@ body {
   box-shadow: 0px 3px 10px rgba(0,0,0,0.8);
   outline: solid 3px #fff;
   background-color: #fff;
+  position: relative;
 }
 
 .hand {
@@ -29,28 +30,73 @@ body {
   border: 3px solid red;
 }
 
+
 .Jack {
   background: url(../marcus.jpeg) no-repeat;
-  background-size: 90%;
-  background-position-y: 50%;
-  background-position-x: 50%;
 }
 
 .Queen {
   background: url(../doug.jpeg) no-repeat;
-  background-size: 90%;
-  background-position-y: 50%;
-  background-position-x: 50%;
 }
 
 .King {
   background: url(../fred.png) no-repeat;
-  background-size: 90%;
+}
+
+.Ace {
+  background: url(../tony.jpg) no-repeat;
+}
+
+.Jack, .Queen, .King, .Ace {
+  background-size: 70%;
   background-position-y: 50%;
   background-position-x: 50%;
+}
+.topleft,.bottomright{
+  background: url(../suits.jpg) no-repeat;
+  background-size: 200%;
+  height: 25px;
+  width: 25px;
+}
+.topleft {
+  margin: 3px 0px 5px 20px;
+}
+
+.bottomright {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  text-align: right;
+  line-height: 30px;
+}
+
+.rank {
+  font-family: 'Oleo Script Swash Caps', cursive;
+}
+
+.topleft .rank{
+  margin-left: -15px;
+}
+
+.bottomright .rank {
+  margin-right: -15px;
+}
+
+.Hearts .topleft, .Hearts .bottomright {
+  background-position-x: 100%;
+}
+
+.Clubs .topleft, .Clubs .bottomright {
+  background-position-x: 100%;
+  background-position-y: 100%;
+}
+
+.Diamonds .topleft, .Diamonds .bottomright {
+  background-position-y: 100%;
 }
 
 .covered {
   background-color: black;
+  background-image: none !important;
   border: solid 3px black;
 }

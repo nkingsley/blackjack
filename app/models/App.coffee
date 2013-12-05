@@ -66,7 +66,6 @@ class window.App extends Backbone.Model
     deck = @get 'deck'
     if deck.length < 13
       deck = @shuffle()
-      debugger
     @set 'playerHand', deck.dealPlayer()
     @set 'dealerHand', deck.dealDealer()
     @trigger 'newHand'
