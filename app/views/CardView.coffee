@@ -21,6 +21,5 @@ class window.CardView extends Backbone.View
       else
         val = @model.attributes.rankName
         @$el.html('<div class="topleft"><div class = "rank">'+val+'</div></div><div class="bottomright"><div class = "rank">'+val+'</div></div>')
-
-
-    @$el.addClass 'covered' unless @model.get 'revealed'
+    else
+      @$el.addClass 'covered'

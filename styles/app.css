@@ -2,6 +2,27 @@ body {
   padding: 20px;
   font-family: sans-serif;
   font-size: 14px;
+  background: url(../table.jpg) no-repeat top center;
+  background-size: 1100px;
+  background-position-y: -260px;
+}
+
+.player-hand-container {
+  width:900px;
+  padding: 20px;
+  margin: 0px auto 40px auto;
+}
+
+.dealer-hand-container {
+  width:900px;
+  padding: 20px;
+  margin: -60px auto 40px auto;
+}
+
+.hand {
+  width: 252px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .card {
@@ -13,13 +34,15 @@ body {
   margin-right: 20px;
   margin-bottom: 20px;
   box-shadow: 0px 3px 10px rgba(0,0,0,0.8);
-  outline: solid 3px #fff;
+  /*outline: solid 3px #fff;*/
   background-color: #fff;
   position: relative;
 }
 
-.hand {
-  overflow: auto;
+.hand h2{
+  line-height: 1em;
+  padding:0;
+  margin: 0;
 }
 
 .Clubs, .Spades {
@@ -32,19 +55,19 @@ body {
 
 
 .Jack {
-  background: url(../marcus.jpeg) no-repeat;
+  background: url(../marcus.jpeg) no-repeat #fff;
 }
 
 .Queen {
-  background: url(../doug.jpeg) no-repeat;
+  background: url(../doug.jpeg) no-repeat #fff;
 }
 
 .King {
-  background: url(../fred.png) no-repeat;
+  background: url(../fred.png) no-repeat #fff;
 }
 
 .Ace {
-  background: url(../tony.jpg) no-repeat;
+  background: url(../tony.jpg) no-repeat #fff;
 }
 
 .Jack, .Queen, .King, .Ace {
@@ -64,10 +87,10 @@ body {
 
 .bottomright {
   position: absolute;
-  bottom: 10px;
+  bottom: 5px;
   right: 20px;
   text-align: right;
-  line-height: 30px;
+  line-height: 35px;
 }
 
 .rank {
@@ -95,8 +118,38 @@ body {
   background-position-y: 100%;
 }
 
+.buttons {
+  width: 200px;
+  margin: 260px auto -20px auto;
+}
+
+button {
+  display: block;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 0px 1px 1px #333;
+  width: 100px;
+  margin: 0 auto 10px auto;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  box-shadow: 0px 1px 1px #333;
+  padding: 5px;
+  background: #febbbb; /* Old browsers */
+  background: -moz-linear-gradient(top,  #febbbb 0%, #fe9090 45%, #ff5c5c 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#febbbb), color-stop(45%,#fe9090), color-stop(100%,#ff5c5c)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #febbbb 0%,#fe9090 45%,#ff5c5c 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #febbbb 0%,#fe9090 45%,#ff5c5c 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #febbbb 0%,#fe9090 45%,#ff5c5c 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #febbbb 0%,#fe9090 45%,#ff5c5c 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#febbbb', endColorstr='#ff5c5c',GradientType=0 ); /* IE6-9 */
+
+}
+
 .covered {
+  background: url(../hackreactor.png) no-repeat;
+  background-position-x: 50%;
+  background-position-y: 50%;
   background-color: black;
-  background-image: none !important;
+  background-size: 95%;
   border: solid 3px black;
 }

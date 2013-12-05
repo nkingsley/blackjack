@@ -10,7 +10,8 @@ class window.App extends Backbone.Model
     hand = @set 'playerHand', deck.dealPlayer()
     @set 'dealerHand', deck.dealDealer()
     @bet()
-
+    if @bestScore(@get('playerHand').scores()) == 21
+      @win("Blackjack!")
   dealOut: ->
     d = @get 'dealerHand'
     dScore = @bestScore(d.scores())
@@ -41,10 +42,14 @@ class window.App extends Backbone.Model
     else
       scArr = scArr[0]
 
-  win: ->
+  win: (blackjack)->
     @pWins++
     @pBucks += @currentBet
-    @bet 'You won!'
+    if blackjack
+      @pBucks += @currentBet/2
+      @bet blackjack 
+    else
+      @bet 'You won!'
     @newHand()
     # console.log("win")
 
@@ -69,6 +74,8 @@ class window.App extends Backbone.Model
     @set 'playerHand', deck.dealPlayer()
     @set 'dealerHand', deck.dealDealer()
     @trigger 'newHand'
+    if @bestScore(@get('playerHand').scores()) == 21
+      @win("Blackjack!")
 
   shuffle: ->
     deck = new Deck()

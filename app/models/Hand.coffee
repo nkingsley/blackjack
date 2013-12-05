@@ -6,6 +6,7 @@ class window.Hand extends Backbone.Collection
 
   hit: ->
     @add(@deck.pop()).last()
+    @trigger 'hit'
     if not @isDealer and @scores()[0] > 21
       @trigger 'loss'
 
