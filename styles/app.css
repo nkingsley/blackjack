@@ -6,7 +6,11 @@ body {
   background-size: 1100px;
   background-position-y: -260px;
 }
-
+.betArea{
+  position:absolute;
+  top: 20px;
+  left: 20px;
+}
 .player-hand-container {
   width:900px;
   padding: 20px;
@@ -129,7 +133,6 @@ button {
   font-weight: bold;
   text-shadow: 0px 1px 1px #333;
   width: 100px;
-  margin: 0 auto 10px auto;
   border: 1px solid #fff;
   border-radius: 3px;
   box-shadow: 0px 1px 1px #333;
@@ -143,6 +146,9 @@ button {
   background: linear-gradient(to bottom,  #febbbb 0%,#fe9090 45%,#ff5c5c 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#febbbb', endColorstr='#ff5c5c',GradientType=0 ); /* IE6-9 */
 
+}
+button .hit-button, button .stand-button{
+  margin: 0 auto 10px auto;
 }
 
 .covered {
