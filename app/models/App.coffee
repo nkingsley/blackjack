@@ -2,16 +2,15 @@
 class window.App extends Backbone.Model
 
   initialize: ->
-    @pWins = 0
-    @dWins = 0
     _.bindAll @, "dealOut"
+    @pWins = 0
+    @pBucks = 1000
+    @currentBet = 0
     @set 'deck', deck = new Deck()
     hand = @set 'playerHand', deck.dealPlayer()
     @set 'dealerHand', deck.dealDealer()
-    # @on 'dealOut', ->
-    #   @get('dealerHand').at(0).flip()
-    #   debugger
-    #   @dealOut()
+    @bet()
+
   dealOut: ->
     d = @get 'dealerHand'
     dScore = @bestScore(d.scores())
@@ -44,17 +43,24 @@ class window.App extends Backbone.Model
 
   win: ->
     @pWins++
+    @pBucks += @currentBet
+    @bet 'You won!'
     @newHand()
-    console.log("win")
+    # console.log("win")
 
   loss: ->
-    @dWins++
+    @pBucks -= @currentBet
+    if @pBucks == 0
+      window.location = 'http://www.paypal.com'
+      return
+    @bet 'You lost!'
     @newHand()
-    console.log("lose")
+    # console.log("lose")
 
   draw: ->
+    @bet 'Push!'
     @newHand()
-    console.log("draw")
+    # console.log("draw")
 
   newHand: ->
     deck = @get 'deck'
@@ -69,3 +75,13 @@ class window.App extends Backbone.Model
     deck = new Deck()
     @set 'deck', deck
     deck
+
+  bet: (msg = '')->
+    @currentBet = parseInt prompt "#{msg} Place your bet. You have $#{@pBucks}"
+    if parseInt(@currentBet) <= 0 or !parseInt(@currentBet)
+      @bet('No bartering')
+    if parseInt(@currentBet) > @pBucks
+      @bet('No going into debt')
+    @
+
+
