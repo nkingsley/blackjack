@@ -6,6 +6,17 @@ body {
   background-size: 1100px;
   background-position-y: -260px;
 }
+.countDiv{
+  position:absolute;
+  top: 80px;
+  left: 20px;
+}
+.flash{
+  position: absolute;
+  top: 140px;
+  left: 20px;
+  font-size: 20px;
+}
 .betArea{
   position:absolute;
   top: 20px;

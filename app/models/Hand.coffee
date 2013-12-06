@@ -1,7 +1,7 @@
 class window.Hand extends Backbone.Collection
 
   model: Card
-
+  
   initialize: (array, @deck, @isDealer) ->
 
   hit: ->
@@ -24,3 +24,8 @@ class window.Hand extends Backbone.Collection
 
   stand: -> 
     @trigger "dealOut"
+  doubleDown: ->
+    @trigger "doubleDown"
+    @hit()
+    if (@scores()[0] < 22)
+      @stand()
