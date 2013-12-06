@@ -74,15 +74,15 @@ class window.App extends Backbone.Model
       deck = @shuffle()
     @set 'playerHand', deck.dealPlayer()
     @set 'dealerHand', deck.dealDealer()
-    if @get('dealerHand').at(1).attributes.rank == 1 
+    if @get('dealerHand').at(1).attributes.rank == 1 && @currentBet*2 <= @pBucks
       @trigger('insurance?')
     if @bestScore(@get('playerHand').scores()) == 21
       @win("Blackjack!")
     @resetListeners()
   insurance: ->
-    debugger
     if @get('dealerHand').at(0).attributes.value == 10
       @currentBet = @currentBet*2
+      @get('dealerHand').at(0).flip()
       @win()
     else
       @pBucks -= @currentBet
